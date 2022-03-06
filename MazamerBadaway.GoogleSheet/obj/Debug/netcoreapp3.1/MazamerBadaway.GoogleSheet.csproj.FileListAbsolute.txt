@@ -1,0 +1,12 @@
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\bin\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.deps.json
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\bin\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\bin\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.csprojAssemblyReference.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.AssemblyInfoInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.AssemblyInfo.cs
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.csproj.CoreCompileInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.csproj.CopyComplete
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.GoogleSheet\obj\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.pdb

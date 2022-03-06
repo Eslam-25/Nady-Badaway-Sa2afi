@@ -1,0 +1,14 @@
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.csprojAssemblyReference.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.AssemblyInfoInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.AssemblyInfo.cs
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.csproj.CoreCompileInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.Services.deps.json
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.Services.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.Services.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\bin\Debug\netcoreapp3.1\MazamerBadaway.GoogleSheet.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.csproj.CopyComplete
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Services\obj\Debug\netcoreapp3.1\MazamerBadaway.Services.pdb

@@ -1,0 +1,9 @@
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.deps.json
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\bin\Debug\netcoreapp3.1\MazamerBadaway.Core.pdb
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.csprojAssemblyReference.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.AssemblyInfoInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.AssemblyInfo.cs
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.csproj.CoreCompileInputs.cache
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.dll
+C:\Users\eslam.heikal\Desktop\APP\Mazamer Badaway\MazamerBadaway\MazamerBadaway.Core\obj\Debug\netcoreapp3.1\MazamerBadaway.Core.pdb
