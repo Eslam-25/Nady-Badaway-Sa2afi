@@ -1,0 +1,82 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+    <nb-card-header class="card-title">
+        إدارة المستخدمين
+    </nb-card-header>
+
+    <nb-card-body class="table-section">
+        <button type="submit" (click)="openAddDialogClick(dialog)" style="font-family: system-ui;" nbButton
+            status="info">إضافة مستخدم <i class="nb-plus"></i> </button>
+        <br />
+        <div class="form-group col-lg-4">
+            <label for="exampleInputEmail1" class="label">صلاحية المستخدم</label>
+            <nb-select fullWidth selected="" [(ngModel)]="roleFilter" (ngModelChange)="onChangeRoleFilter($event)">
+                <nb-option value="" disabled>اختر صلاحية المستخدم</nb-option>
+                <nb-option [value]="0">مسئول عام</nb-option>
+                <nb-option [value]="3">مسئول مساعد</nb-option>
+            </nb-select>
+        </div>
+        <br />
+        <data-table [columns]="columns" [dataSet]="filteredData" (onEdit)="onEditConfirm($event)"
+            (onDelete)="onDeleteConfirm($event)"></data-table>
+    </nb-card-body>
+</nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
+        <nb-card-header class="dialo-title">اضافة مستخدم</nb-card-header>
+        <form [formGroup]="userFormGroup" (ngSubmit)="onSubmitAdding(ref)">
+            <nb-card-body>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">اسم المستخدم</label>
+                    <input dir="rtl" formControlName="name" placeholder="اكتب هنا ..." fullWidth type="text" nbInput>
+                    <div class="err-Msg"
+                        *ngIf="userFormControl.name.touched && userFormControl.name.errors?.required">
+                        * يرجى ادخال اسم المستخدم
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">رقم الهاتف</label>
+                    <input dir="rtl" formControlName="phoneNumber" placeholder="اكتب هنا ..." fullWidth type="text"
+                        nbInput>
+                    <div class="err-Msg"
+                        *ngIf="userFormControl.phoneNumber.touched && userFormControl.phoneNumber.errors?.required">
+                        * يرجى ادخال رقم الهاتف
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">الرقم السرى</label>
+                    <br />
+                    <nb-form-field dir="ltr" style="width: 100%;">
+                        <nb-icon (click)="toggleShowPassword()" nbPrefix
+                            [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'" pack="eva"></nb-icon>
+                        <input dir="rtl" fullWidth formControlName="password" placeholder="******"
+                            [type]="showPassword ? 'text' : 'password'" nbInput>
+                    </nb-form-field>
+
+                    <div class="err-Msg"
+                        *ngIf="userFormControl.password.touched && userFormControl.password.errors?.required">
+                        * يرجى ادخال الرقم السرى
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">صلاحية المستخدم</label>
+                    <nb-select fullWidth selected="" formControlName="role">
+                        <nb-option value="" disabled>اختر صلاحية المستخدم</nb-option>
+                        <nb-option [value]="0">مسئول عام</nb-option>
+                        <nb-option [value]="1">مسئول مساعد</nb-option>
+                    </nb-select>
+                    <div class="err-Msg"
+                        *ngIf="userFormControl.role.touched && userFormControl.role.errors?.required">
+                        * يرجى اختيار صلاحية المستخدم
+                    </div>
+                </div>
+
+                <br />
+            </nb-card-body>
+            <nb-card-footer>
+                <button nbButton (click)="ref.close()">لا</button>
+                <button nbButton style="margin-left: 1rem;" status="info" type="submit">حفظ</button>
+            </nb-card-footer>
+        </form>
+    </nb-card>
+</ng-template>

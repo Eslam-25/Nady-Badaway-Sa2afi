@@ -1,0 +1,45 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+    <nb-card-header class="card-title">
+        إدارة المستويات
+    </nb-card-header>
+
+    <nb-card-body class="table-section">
+        <button type="submit" (click)="openAddDialogClick(dialog)" style="font-family: system-ui;" nbButton
+            status="info">إضافة مستوي <i class="nb-plus"></i> </button>
+        <br />
+        <br />
+        <data-table [columns]="columns" [dataSet]="dataSet" (onEdit)="onEditConfirm($event)" (onDelete)="onDeleteConfirm($event)"></data-table>
+    </nb-card-body>
+</nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
+        <nb-card-header class="dialo-title">اضافة مستوي</nb-card-header>
+        <form [formGroup]="levelFormGroup" (ngSubmit)="onSubmitAdding(ref)">
+            <nb-card-body>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">اسم المستوي</label>
+                    <input dir="rtl" formControlName="name" placeholder="اكتب هنا ..." fullWidth type="text" nbInput>
+                    <div class="err-Msg"
+                        *ngIf="levelFormControl.name.touched && levelFormControl.name.errors?.required">
+                        * يرجى ادخال اسم التقييم
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="label">درجة التقييم</label>
+                    <input dir="rtl" formControlName="degree" placeholder="اكتب هنا ..." fullWidth type="number" nbInput>
+                    <div class="err-Msg"
+                        *ngIf="levelFormControl.degree.touched && levelFormControl.degree.errors?.required">
+                        * يرجى ادخال درجة التقييم
+                    </div>
+                </div>
+
+                <br />
+            </nb-card-body>
+            <nb-card-footer>
+                <button nbButton (click)="ref.close()">لا</button>
+                <button nbButton style="margin-left: 1rem;" status="info" type="submit">حفظ</button>
+            </nb-card-footer>
+        </form>
+    </nb-card>
+</ng-template>

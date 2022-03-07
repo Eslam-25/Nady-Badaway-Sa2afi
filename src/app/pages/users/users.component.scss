@@ -1,0 +1,30 @@
+.card-title {
+  font-family: system-ui;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.dialog-section {
+  padding: 0 1rem 1rem 1rem;
+}
+.err-Msg {
+  color: red;
+  text-align: right;
+  font-size: small;
+  font-weight: 600;
+  font-family: system-ui;
+}
+
+.dialo-title,
+.dialog-section button,
+.dialog-section label,
+.dialog-section input {
+  font-family: system-ui;
+}
+::ng-deep nb-option-list.size-medium nb-option {
+  justify-content: right;
+}
+::ng-deep .select-button,
+::ng-deep nb-option-list.size-medium nb-option {
+  font-family: system-ui !important;
+}

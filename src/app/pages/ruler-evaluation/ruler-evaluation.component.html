@@ -1,0 +1,63 @@
+<div class="row" style="justify-content: center;">
+    <div class="col-lg-7">
+        <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+            <nb-card-header style="font-family: system-ui; text-align: center; font-size: 1.1rem;">تقييم متسابق
+            </nb-card-header>
+            <nb-card-body>
+                <div *ngIf="!hasaReader">
+                    <label for="exampleInputEmail1" class="label">رقم المتسابق</label>
+                    <input [(ngModel)]="readerId" (ngModelChange)="onChangeReaderId($event)" placeholder="اكتب هنا ..."
+                        fullWidth type="number" nbInput>
+                    <div class="err-Msg" *ngIf="displayReaderIdErr">
+                        * يرجى ادخال رقم المتسابق
+                    </div>
+                    <br /> <br />
+                    <button type="submit" style="width: 8rem; float: right;" (click)="onGetReaderById()" nbButton
+                        status="info">بحث</button>
+                    <br /> <br /> <br />
+                </div>
+
+                <div *ngIf="hasaReader">
+                    <div class="row" style="justify-content: space-between; padding: 0 1rem;">
+                        <div class="info-section">
+                            <h5> <label for="exampleInputEmail1" class="label">رقم المتسابق : </label> {{readerModel?.id}}
+                            </h5>
+                        </div>
+                        <div class="info-section">
+                            <h5> <label for="exampleInputEmail1" class="label">العمر : </label> {{age}}</h5>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <h5> <label for="exampleInputEmail1" class="label">اسم المتسابق : </label> {{readerModel?.name}}
+                        </h5>
+                    </div>
+                    <div class="info-section">
+                        <h5> <label for="exampleInputEmail1" class="label">مستوي الحفظ : </label> {{readerModel?.level}}
+                        </h5>
+                    </div>
+                    <div class="info-section">
+                        <h5> <label for="exampleInputEmail1" class="label">درجة التقييم : </label> {{readerModel?.degree}}
+                        </h5>
+                    </div>
+                    <hr />
+
+                    <label for="exampleInputEmail1" class="label">تقييم المتسابق</label>
+                    <input [disabled]="readerModel?.degree > 0" [(ngModel)]="evaluationValue" (ngModelChange)="onChangeEvalution($event)"
+                        placeholder="اكتب هنا ..." fullWidth type="number" nbInput>
+                    <div class="err-Msg" *ngIf="displayEvalutionErr">
+                        * يرجى ادخال تقييم المتسابق
+                    </div>
+
+                    <br /> <br />
+                    <div class="row" style="justify-content: space-between; padding: 0 1rem;">
+                        <button [disabled]="readerModel?.degree > 0" (click)="onSaveEvalution()" nbButton
+                            status="success">حفظ
+                            التقييم</button>
+                        <button (click)="newReader()" nbButton status="info">متسابق
+                            جديد</button>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

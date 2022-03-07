@@ -1,0 +1,19 @@
+<nb-card [nbSpinner]="isLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+    <nb-card-header class="card-title">
+        ادارة المتسابقين
+    </nb-card-header>
+
+    <nb-card-body class="table-section" >
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1" class="label">بحث بـ مستوي الحفظ</label>
+            <nb-select [(ngModel)]="selectedLevel" (ngModelChange)="onChangeLevelilter($event)" fullWidth>
+                <nb-option value="" disabled>اختر مستوي الحفظ</nb-option>
+                <nb-option *ngFor="let level of levels;" [value]="level?.id">{{level?.name}}</nb-option>
+            </nb-select>
+        </div>
+        <br />
+
+        <data-table [columns]="columns" [hideFilter]="false" [dataSet]="filterData" (onEdit)="onEditConfirm($event)"
+            (onDelete)="onDeleteConfirm($event)"></data-table>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,56 @@
+<div class="row" style="justify-content: center;">
+    <div class="col-lg-8" style="text-align: center;">
+        <form [formGroup]="readerForm" (ngSubmit)="onSubmit()">
+            <nb-card [nbSpinner]="isLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+                <nb-card-header style="font-family: system-ui;">تسجيل متسابق فى مسابقة بدواى للقران الكريم رمضان {{currentYeat}}</nb-card-header>
+                <nb-card-body>
+                    <label for="exampleInputEmail1" class="label">الاسم الرباعى</label>
+                    <input type="text" id="readerName" formControlName="name" nbInput fullWidth
+                        placeholder="اكتب هنا ...">
+                    <div class="err-Msg"
+                        *ngIf="registerFormControl.name.touched && registerFormControl.name.errors?.required">
+                        * يرجى ادخال الاسم
+                    </div>
+
+                    <label for="exampleInputEmail1" class="label">تاريخ الميلاد</label>
+                    <input type="text" nbInput placeholder="اختر تاريخ ميلادك ..." (ngModelChange)="onChangeBOD($event)"
+                        [ngModelOptions]="{standalone: true}" [(ngModel)]="birthDate" fullWidth
+                        [nbDatepicker]="formpicker">
+                    <nb-datepicker #formpicker></nb-datepicker>
+                    <div class="err-Msg" *ngIf="displayBODErr">
+                        * يرجى ادخال تاريخ الميلاد
+                    </div>
+
+                    <label for="exampleInputEmail1" class="label">رقم الهاتف</label>
+                    <input type="number" nbInput fullWidth formControlName="phoneNumber" placeholder="اكتب هنا ...">
+                    <div class="err-Msg"
+                        *ngIf="registerFormControl.phoneNumber.touched && registerFormControl.phoneNumber.errors?.required">
+                        * يرجى ادخال رقم الهاتف
+                    </div>
+
+                    <label for="exampleInputEmail1" class="label">اسم المحفظ</label>
+                    <input type="text" nbInput fullWidth formControlName="sheikhName" placeholder="اكتب هنا ...">
+                    <div class="err-Msg"
+                        *ngIf="registerFormControl.sheikhName.touched && registerFormControl.sheikhName.errors?.required">
+                        * يرجى ادخال اسم المحفظ
+                    </div>
+
+                    <label for="exampleInputEmail1" class="label">العنوان</label>
+                    <input type="text" nbInput fullWidth formControlName="address" placeholder="اكتب هنا ...">
+
+                    <label for="exampleInputEmail1" class="label">مستوي الحفظ</label>
+                    <nb-select fullWidth selected="" formControlName="levelId">
+                        <nb-option value="" disabled>اختر مستوي الحفظ</nb-option>
+                        <nb-option *ngFor="let level of dataSet;" [value]="level?.id">{{level?.name}}</nb-option>
+                    </nb-select>
+                    <div class="err-Msg"
+                        *ngIf="registerFormControl.levelId.touched && registerFormControl.levelId.errors?.required">
+                        * يرجى اختيار مستوي الحفظ
+                    </div>
+
+                    <button type="submit" style="width: 10rem;" nbButton status="success">حفظ</button>
+                </nb-card-body>
+            </nb-card>
+        </form>
+    </div>
+</div>

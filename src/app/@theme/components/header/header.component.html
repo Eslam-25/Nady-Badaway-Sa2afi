@@ -1,0 +1,35 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+
+    <a class="logo" href="#" (click)="navigateHome()">نادى بدواى الثقافي</a>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="small">
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']">
+      <img src="assets/images/logo-mazamer.jpg" *ngIf="!localStorageService.getUserId()" width="45" />
+      <nb-user [nbContextMenu]="userMenu" *ngIf="localStorageService.getUserId()"
+        picture="assets/images/logo-mazamer.jpg" nbContextMenuTag="userMenu" [onlyPicture]="userPictureOnly"
+        [name]="userName">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
+
+<ng-template #dialogMsg let-data let-refConfirm="dialogRef">
+  <nb-card class="dialog-section">
+    <nb-card-header class="dialo-title">خروج</nb-card-header>
+    <nb-card-body class="confirm-msg">
+      هل تريد الخروج ؟
+    </nb-card-body>
+    <nb-card-footer style="padding: 0.5rem 0 0 0;">
+      <button nbButton (click)="onCancel(refConfirm)">لا</button>
+      <button nbButton (click)="onConfirm(data?.type, refConfirm)" style="margin-left: 1rem; width: 3rem;"
+        status="danger" type="submit">حفظ</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

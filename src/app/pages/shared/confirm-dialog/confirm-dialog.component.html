@@ -1,0 +1,12 @@
+<ng-template #dialogMsg let-data let-refConfirm="dialogRef">
+    <nb-card class="dialog-section">
+        <nb-card-header class="dialo-title">{{ data.title }}</nb-card-header>
+        <nb-card-body class="confirm-msg">
+            {{ data.body }}
+        </nb-card-body>
+        <nb-card-footer style="padding: 0.5rem 0 0 0;">
+            <button nbButton (click)="refConfirm.close()">لا</button>
+            <button nbButton style="margin-left: 1rem; width: 3rem;" status="danger" type="submit">حفظ</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
