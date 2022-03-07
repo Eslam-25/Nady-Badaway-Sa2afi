@@ -29,7 +29,6 @@ namespace MazamerBadaway.Services.Implementations
         {
             user.Id = SheetsId.LastId[sheetName] + 1;
             user.IsActive = true;
-            user.CreationDate = DateHelper.Now();
             Create(UserMapper.MapToRangeData(user), sheetName, lastIndexChar);
             SheetsId.LastId[sheetName]++;
         }
