@@ -80,6 +80,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
+              "extractCss": false,
               "vendorChunk": false,
               "buildOptimizer": true,
               "fileReplacements": [
