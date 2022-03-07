@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KXHoToUVCM8Z8+Uu0yggxcjMCZkWDQ0xIc0sjn0FYAXEdNe+khQ2eYGiWRuLeZe8uTeut+yA3ZdqR8smPOi6zw==",
+  "dgSpecHash": "6ksNFSo09Gft8PwEmzB9U9kf1Bgh0igcnFEVyi7RS8fSGwIY0T7Pvues9F3+x/NHLtoHedWjicHBxrhruQdVCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
+  "projectFilePath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eslam.heikal\\.nuget\\packages\\jetbrains.annotations\\2021.1.0\\jetbrains.annotations.2021.1.0.nupkg.sha512",
     "C:\\Users\\eslam.heikal\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

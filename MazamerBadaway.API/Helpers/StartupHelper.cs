@@ -14,9 +14,11 @@ namespace MazamerBadaway.API.Helpers
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    builder.AllowAnyOrigin()
+                    builder
                     .AllowAnyHeader()
-                    .AllowAnyMethod();
+                    .AllowAnyMethod()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    .AllowCredentials();
                 });
             });
         }

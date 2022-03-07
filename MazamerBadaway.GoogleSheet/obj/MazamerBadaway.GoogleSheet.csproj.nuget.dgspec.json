@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj": {}
+    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj": {
+    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
+        "projectUniqueName": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
         "projectName": "MazamerBadaway.Core",
-        "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
+        "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj",
         "packagesPath": "C:\\Users\\eslam.heikal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\obj\\",
+        "outputPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj": {
+    "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj",
+        "projectUniqueName": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj",
         "projectName": "MazamerBadaway.GoogleSheet",
-        "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj",
+        "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.GoogleSheet\\MazamerBadaway.GoogleSheet.csproj",
         "packagesPath": "C:\\Users\\eslam.heikal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.GoogleSheet\\obj\\",
+        "outputPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.GoogleSheet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -104,8 +104,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj": {
-                "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj"
+              "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj": {
+                "projectPath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.Core\\MazamerBadaway.Core.csproj"
               }
             }
           }

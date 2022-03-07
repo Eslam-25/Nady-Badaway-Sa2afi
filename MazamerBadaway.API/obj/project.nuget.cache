@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "73rxmmFuxmJK2b+CnXMW8/vgnEv3UYZdoSKS3U6gn+P5UnUvQN4aIerl/bIi6097lxOjtsJXn5xifdTGFd6rCg==",
+  "dgSpecHash": "xdd9oNyT13W2ni+Es7ZxmQRXkKIzj/VsuQnJL88EUCHb8G1kO89zNCjVLhNTUtHG660jJjTImXgiBUwYjhs1Ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\MazamerBadaway.API\\MazamerBadaway.API.csproj",
+  "projectFilePath": "C:\\Users\\eslam.heikal\\Desktop\\APP\\Mazamer Badaway\\MazamerBadaway\\Nady-Badaway-Sa2afi\\MazamerBadaway.API\\MazamerBadaway.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eslam.heikal\\.nuget\\packages\\google.apis\\1.56.0\\google.apis.1.56.0.nupkg.sha512",
     "C:\\Users\\eslam.heikal\\.nuget\\packages\\google.apis.auth\\1.56.0\\google.apis.auth.1.56.0.nupkg.sha512",
