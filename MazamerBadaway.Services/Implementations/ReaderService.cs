@@ -28,7 +28,7 @@ namespace MazamerBadaway.Services.Implementations
 
         public void EvaluateReader(ReaderDegree readerDegree)
         {
-            readerDegree.CreationDate = DateHelper.Now();
+            //readerDegree.CreationDate = DateHelper.Now();
             string sheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string lastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
             Create(ReaderDegreeMapper.MapToRangeData(readerDegree), sheetName, lastIndexChar);
@@ -38,7 +38,7 @@ namespace MazamerBadaway.Services.Implementations
         {
             reader.Id = SheetsId.LastId[sheetName] + 1;
             reader.IsActive = true;
-            reader.CreationDate = DateHelper.Now();
+            //reader.CreationDate = DateHelper.Now();
             Create(ReaderMapper.MapToRangeData(reader), sheetName, lastIndexChar);
             SheetsId.LastId[sheetName]++;
         }
