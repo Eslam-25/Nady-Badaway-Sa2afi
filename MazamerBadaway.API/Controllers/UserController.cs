@@ -36,7 +36,7 @@ namespace MazamerBadaway.API.Controllers
             return Ok(_userService.GetById(id));
         }
 
-        [HttpPut("add-user")]
+        [HttpPost]
         public IActionResult Post(User item)
         {
             _userService.Create(item);
