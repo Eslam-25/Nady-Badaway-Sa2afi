@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 import { ReaderDegreeModel } from '../reader-module/models/reader-degree.model';
 import { ReaderModel } from '../reader-module/models/reader.model';
-import { ReaderSevice } from '../reader-module/services/reader.service';
+import { ReaderSevice } from '../services/reader.service';
 import { ToastService } from '../shared/toast.service';
 
 @Component({

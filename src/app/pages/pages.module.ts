@@ -18,7 +18,7 @@ import { RulersComponent } from './rulers/rulers.component';
 import { ReadersComponent } from './reader-module/pages/readers/readers.component';
 import { LevelService } from './services/level.service';
 import { BehaviorService } from '../core/services/behavior.service';
-import { ReaderSevice } from './reader-module/services/reader.service';
+import { ReaderSevice } from './services/reader.service';
 import { UserService } from '../@core/mock/users.service';
 
 @NgModule({

@@ -3,7 +3,7 @@ import { NbDialogService } from '@nebular/theme';
 import { LevelService } from '../../../services/level.service';
 import { ToastService } from '../../../shared/toast.service';
 import { ReaderModel } from '../../models/reader.model';
-import { ReaderSevice } from '../../services/reader.service';
+import { ReaderSevice } from '../../../services/reader.service';
 
 @Component({
   selector: 'ngx-readers',

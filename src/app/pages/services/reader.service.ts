@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { environment } from "../../../../environments/environment";
-import { HttpService } from "../../../core/services/http.service";
-import { ReaderDegreeModel } from "../models/reader-degree.model";
-import { ReaderModel } from "../models/reader.model";
+import { environment } from "../../../environments/environment";
+import { HttpService } from "../../core/services/http.service";
+import { ReaderDegreeModel } from "../reader-module/models/reader-degree.model";
+import { ReaderModel } from "../reader-module/models/reader.model";
 
 @Injectable()
 export class ReaderSevice{
@@ -13,10 +13,12 @@ export class ReaderSevice{
     }
 
     registerReader(reader: ReaderModel): Promise<boolean>{
+        reader.creationDate = new Date(Date.now());
         return this.httpService.post(this.segment, reader);
     }
 
     evaluateReader(reader: ReaderDegreeModel): Promise<boolean>{
+        reader.creationDate = new Date(Date.now());
         return this.httpService.post(this.segment + "/evaluate", reader);
     }
 

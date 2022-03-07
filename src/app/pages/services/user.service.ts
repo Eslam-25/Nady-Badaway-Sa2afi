@@ -23,6 +23,7 @@ export class UserService{
     }
 
     add(user: UserModel): Promise<boolean>{
+        user.creationDate = new Date(Date.now());
         return this.httpService.post(this.segment, user);
     }
 

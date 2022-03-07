@@ -28,12 +28,14 @@ export class DataTableComponent implements OnInit, OnChanges {
   constructor(private dialogService: NbDialogService, private behaviorService: BehaviorService) {
     this.behaviorService.isDataAdded.subscribe(value => {
       if (value) {
+        this.dataSet = this.dataSet ? this.dataSet : [];
         this.source.load(this.dataSet);
       }
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.dataSet = this.dataSet ? this.dataSet : [];
     this.source.load(this.dataSet);
   }
 

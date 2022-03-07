@@ -4,7 +4,7 @@ import { ReaderModel } from '../../models/reader.model';
 import { ToastService } from '../../../shared/toast.service';
 import { LevelService } from '../../../services/level.service';
 import { LevelModel } from '../../../models/level.model';
-import { ReaderSevice } from '../../services/reader.service';
+import { ReaderSevice } from '../../../services/reader.service';
 
 @Component({
   selector: 'ngx-register-reader',
