@@ -29,6 +29,10 @@ const routes: Routes = [{
       component: RulerEvaluationComponent,
     },
     {
+      path: 'my-evalution',
+      component: RulerEvaluationComponent,
+    },
+    {
       path: 'levels',
       component: LevelsComponent,
     },

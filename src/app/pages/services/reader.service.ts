@@ -12,9 +12,9 @@ export class ReaderSevice{
     constructor(private httpService: HttpService){
     }
 
-    registerReader(reader: ReaderModel): Promise<boolean>{
+    registerReader(reader: ReaderModel): Promise<ReaderModel>{
         reader.creationDate = new Date(Date.now());
-        return this.httpService.post(this.segment, reader);
+        return this.httpService.postWithType<ReaderModel>(this.segment, reader);
     }
 
     evaluateReader(reader: ReaderDegreeModel): Promise<boolean>{
@@ -26,12 +26,16 @@ export class ReaderSevice{
         return this.httpService.get<ReaderModel>(this.segment);
     }
 
-    getReaderEvelautionByRulerId(readerId: number, rulerId: number): Promise<ReaderModel>{
-        return this.httpService.getBy<ReaderModel>(this.segment + `/reader-evaluation-byRuler?readerId=${readerId}&rulerId=${rulerId}`);
+    getReaderEvelautionByRulerId(readerCode: string, rulerId: number): Promise<ReaderModel>{
+        return this.httpService.getBy<ReaderModel>(this.segment + `/reader-evaluation-byRuler?readerCode=${readerCode}&rulerId=${rulerId}`);
     }
 
     getById(id: number): Promise<ReaderModel>{
         return this.httpService.getById<ReaderModel>(this.segment, id);
+    }
+
+    getByCode(code: string): Promise<ReaderModel>{
+        return this.httpService.getByAny<ReaderModel>(this.segment + `/by-code`, code);
     }
 
     Update(user: ReaderModel): Promise<boolean>{

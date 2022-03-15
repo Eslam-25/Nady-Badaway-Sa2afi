@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 import { ReaderDegreeModel } from '../reader-module/models/reader-degree.model';
 import { ReaderModel } from '../reader-module/models/reader.model';
@@ -16,21 +17,28 @@ export class RulerEvaluationComponent implements OnInit {
   loading: boolean = false;
   displayReaderIdErr: boolean = false;
   displayEvalutionErr: boolean = false;
-  readerId: number;
+  readerCode: string;
   evaluationValue: number;
+  evaluationNote: string;
   age: number;
   readerModel: ReaderModel;
-
+  userIsReader: boolean = false;
   constructor(
     private readerService: ReaderSevice,
     private toastService: ToastService,
     private localStorageService: LocalStorageService,
-    ) { }
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const code = this.localStorageService.getItem("code");
+    if (code) {
+      this.userIsReader = true;
+      await this.getByCode(code);
+    }
   }
 
-  onChangeReaderId($event) {
+  onChangeReaderCode($event) {
     this.displayReaderIdErr = false;
   }
 
@@ -39,42 +47,59 @@ export class RulerEvaluationComponent implements OnInit {
   }
 
   newReader() {
-    this.readerId = null;
+    this.readerCode = null;
     this.hasaReader = false;
   }
 
+  async getByCode(code: string) {
+    this.loading = true;
+    let reader = await this.readerService.getByCode(code);
+    this.preapreReader(reader);
+    this.loading = false;
+  }
+
   async onGetReaderById() {
-    if (!this.readerId) {
+    if (!this.readerCode) {
       this.displayReaderIdErr = true;
       return;
     }
     this.loading = true;
-    let reader = await this.readerService.getReaderEvelautionByRulerId(this.readerId, this.localStorageService.getUserId());
+    let reader = await this.readerService.getReaderEvelautionByRulerId(this.readerCode, this.localStorageService.getUserId());
+    this.preapreReader(reader);
+    this.loading = false;
+  }
+
+  preapreReader(reader) {
     if (reader) {
       this.readerModel = reader as ReaderModel;
+      this.evaluationNote = reader.note;
+      this.evaluationValue = reader.degree == 0 ? null : reader.degree;
       this.age = new Date().getFullYear() - new Date(this.readerModel?.birthDate).getFullYear();
       this.hasaReader = true;
-    }else{
+    } else {
       this.toastService.showError("عفوا هذا المتسابق غير موجود")
-      this.readerId = null;
+      this.readerCode = null;
     }
-    this.loading = false;
   }
 
   async onSaveEvalution() {
     if (!this.evaluationValue) {
       this.displayEvalutionErr = true;
-       return;
-    } 
+      return;
+    }
 
     this.loading = true;
-    let readerDegree = {degree: this.evaluationValue, rulerId: this.localStorageService.getUserId(), readerId: this.readerModel.id } as ReaderDegreeModel;
+    let readerDegree = {
+      degree: this.evaluationValue,
+      rulerId: this.localStorageService.getUserId(),
+      readerId: this.readerModel.id,
+      note: this.evaluationNote
+    } as ReaderDegreeModel;
     let isUpdated = await this.readerService.evaluateReader(readerDegree);
     if (isUpdated) {
       this.toastService.showSuccess("لقد تم حفظ تقييم المتسابق بنجاح");
       await this.onGetReaderById();
-      this.evaluationValue = null;
-    }else{
+    } else {
       this.toastService.showError("لقد حدث خطأ يرجى المحاولة لاحقا");
     }
     this.loading = false;

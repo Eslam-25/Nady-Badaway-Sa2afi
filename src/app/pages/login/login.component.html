@@ -3,14 +3,21 @@
         <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
             <nb-card-header style="font-family: system-ui;">دخول</nb-card-header>
             <nb-card-body>
+                <div>
+                    <nb-radio-group [(ngModel)]="role" (ngModelChange)="changeRole($event)">
+                        <nb-radio [checked]="true" class="role-radio label" value="0">ادارى</nb-radio>
+                        <nb-radio class="role-radio label" value="1">متسابق</nb-radio>
+                      </nb-radio-group>
+                </div>
+              
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="label">رقم الهاتف</label>
-                            <input formControlName="phoneNumber" placeholder="0123456789" fullWidth type="number" nbInput>
+                        <label for="exampleInputEmail1" class="label">{{firstFieldTitle}}</label>
+                            <input formControlName="phoneNumber" [placeholder]="firstFieldPlaceHolder" fullWidth type="text" nbInput>
 
                         <div class="err-Msg"
                             *ngIf="loginFormControl.phoneNumber.touched && loginFormControl.phoneNumber.errors?.required">
-                            * يرجى ادخال رقم الهاتف
+                            * يرجى ادخال {{firstFieldTitle}}
                         </div>
                     </div>
 

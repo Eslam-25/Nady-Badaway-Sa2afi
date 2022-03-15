@@ -2,5 +2,6 @@ export enum UserRoleEnum {
     Admin,
     Controller,
     Ruler,
-    Employee
+    Employee,
+    Reader
 }

@@ -4,12 +4,12 @@
             <nb-card-header style="font-family: system-ui; text-align: center; font-size: 1.1rem;">تقييم متسابق
             </nb-card-header>
             <nb-card-body>
-                <div *ngIf="!hasaReader">
-                    <label for="exampleInputEmail1" class="label">رقم المتسابق</label>
-                    <input [(ngModel)]="readerId" (ngModelChange)="onChangeReaderId($event)" placeholder="اكتب هنا ..."
-                        fullWidth type="number" nbInput>
+                <div *ngIf="!hasaReader && !userIsReader">
+                    <label for="exampleInputEmail1" class="label">كود المتسابق</label>
+                    <input [(ngModel)]="readerCode" (ngModelChange)="onChangeReaderCode($event)"
+                        placeholder="اكتب هنا ..." fullWidth type="text" nbInput>
                     <div class="err-Msg" *ngIf="displayReaderIdErr">
-                        * يرجى ادخال رقم المتسابق
+                        * يرجى ادخال كود المتسابق
                     </div>
                     <br /> <br />
                     <button type="submit" style="width: 8rem; float: right;" (click)="onGetReaderById()" nbButton
@@ -20,7 +20,8 @@
                 <div *ngIf="hasaReader">
                     <div class="row" style="justify-content: space-between; padding: 0 1rem;">
                         <div class="info-section">
-                            <h5> <label for="exampleInputEmail1" class="label">رقم المتسابق : </label> {{readerModel?.id}}
+                            <h5> <label for="exampleInputEmail1" class="label">كود المتسابق : </label>
+                                {{readerModel?.code}}
                             </h5>
                         </div>
                         <div class="info-section">
@@ -36,20 +37,29 @@
                         </h5>
                     </div>
                     <div class="info-section">
-                        <h5> <label for="exampleInputEmail1" class="label">درجة التقييم : </label> {{readerModel?.degree}}
+                        <h5> <label for="exampleInputEmail1" class="label">درجة التقييم : </label>
+                            {{readerModel?.degree}}
                         </h5>
                     </div>
+                    
                     <hr />
-
-                    <label for="exampleInputEmail1" class="label">تقييم المتسابق</label>
-                    <input [disabled]="readerModel?.degree > 0" [(ngModel)]="evaluationValue" (ngModelChange)="onChangeEvalution($event)"
-                        placeholder="اكتب هنا ..." fullWidth type="number" nbInput>
-                    <div class="err-Msg" *ngIf="displayEvalutionErr">
-                        * يرجى ادخال تقييم المتسابق
+                    <div *ngIf="!userIsReader">
+                        <label for="exampleInputEmail1" class="label">درجة تقييم المتسابق</label>
+                        <input [disabled]="readerModel?.degree > 0" [(ngModel)]="evaluationValue"
+                            (ngModelChange)="onChangeEvalution($event)" placeholder="اكتب هنا ..." fullWidth
+                            type="number" nbInput>
+                        <div class="err-Msg" *ngIf="displayEvalutionErr">
+                            * يرجى ادخال درجة تقييم المتسابق
+                        </div>
+                        <br />
+                        <br />
                     </div>
+                    <label for="exampleInputEmail1" class="label"> ملاحظات عن المتسابق</label>
+                    <textarea [disabled]="readerModel?.degree > 0" [(ngModel)]="evaluationNote" rows="3"
+                        placeholder="اكتب هنا ..." fullWidth type="text" nbInput></textarea>
 
                     <br /> <br />
-                    <div class="row" style="justify-content: space-between; padding: 0 1rem;">
+                    <div class="row" *ngIf="!userIsReader" style="justify-content: space-between; padding: 0 1rem;">
                         <button [disabled]="readerModel?.degree > 0" (click)="onSaveEvalution()" nbButton
                             status="success">حفظ
                             التقييم</button>

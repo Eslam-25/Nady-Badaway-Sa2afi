@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReaderModel } from '../../models/reader.model';
 import { ToastService } from '../../../shared/toast.service';
 import { LevelService } from '../../../services/level.service';
 import { LevelModel } from '../../../models/level.model';
 import { ReaderSevice } from '../../../services/reader.service';
+import { NbDialogService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-register-reader',
@@ -20,11 +21,14 @@ export class RegisterReaderComponent implements OnInit {
   isLoading: boolean = true;
   dataSet: LevelModel[] = [];
   currentYeat = new Date(Date.now()).getFullYear();
+  userCode: string = "00-00";
+  password: string = "00-00";
 
   constructor(
     private toastService: ToastService,
     private levelService: LevelService,
-    private readerSevice: ReaderSevice
+    private readerSevice: ReaderSevice,
+    private dialogService: NbDialogService,
     ) { }
 
   async ngOnInit() {
@@ -55,7 +59,13 @@ export class RegisterReaderComponent implements OnInit {
     this.displayBODErr = false;
   }
 
-  async onSubmit() {
+  closeDialog(ref){
+    this.birthDate = null;
+    this.readerForm.reset();
+    ref.close();
+  }
+
+  async onSubmit(dialog: TemplateRef<any>) {        
     this.readerForm.markAllAsTouched();
     if(!this.birthDate){
       this.displayBODErr = true;
@@ -67,11 +77,18 @@ export class RegisterReaderComponent implements OnInit {
       this.readerModel.phoneNumber = this.readerModel.phoneNumber.toString();
       this.readerModel.level = this.dataSet.find(r => r.id == this.readerModel.levelId).name;
       this.readerModel.birthDate = this.birthDate;
-      let isAdded = await this.readerSevice.registerReader(this.readerModel);
-      if(isAdded){
-        this.toastService.showSuccess("لقد تم تسجيل المتسابق بنجاح");
-        this.birthDate = null;
-        this.readerForm.reset();
+      this.readerModel.code = "";
+      this.readerModel.password = "";
+      console.log(this.readerModel)
+      let reader = await this.readerSevice.registerReader(this.readerModel);
+      if(reader){
+        this.dialogService.open(
+          dialog,
+          {
+            closeOnBackdropClick: false,
+          });
+        this.userCode = reader.code;
+        this.password = reader.password;
       }else this.toastService.showError("لقد حدث خطأ يرجى المحاولة لاحقا");
       this.isLoading = false;
     }

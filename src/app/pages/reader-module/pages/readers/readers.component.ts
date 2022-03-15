@@ -30,22 +30,22 @@ export class ReadersComponent implements OnInit {
   async ngOnInit() {
     this.displayAllReaderInformation();
 
-    this.columns.degree = {
-      title: 'التقييم',
-      type: 'string',
-    };
-    this.columns.rulerName = {
-      title: 'اسم الشيخ',
-      type: 'string',
-    }
+    // this.columns.degree = {
+    //   title: 'التقييم',
+    //   type: 'string',
+    // };
+    // this.columns.rulerName = {
+    //   title: 'اسم الشيخ',
+    //   type: 'string',
+    // }
     await this.prepareLevels();
     await this.prepareReaders();
   }
 
   displayAllReaderInformation(){
     this.columns = {
-      id: {
-        title: 'رقم المتسابق',
+      code: {
+        title: 'كود المتسابق',
         type: 'number',
       },
       name: {
@@ -54,6 +54,10 @@ export class ReadersComponent implements OnInit {
       },
       phoneNumber: {
         title: 'رقم الهاتف',
+        type: 'string',
+      },
+      password: {
+        title: 'الرقم السري',
         type: 'string',
       },
       address: {

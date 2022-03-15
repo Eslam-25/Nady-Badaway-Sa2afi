@@ -1,8 +1,9 @@
 <div class="row" style="justify-content: center;">
     <div class="col-lg-8" style="text-align: center;">
-        <form [formGroup]="readerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="readerForm" (ngSubmit)="onSubmit(dialog)">
             <nb-card [nbSpinner]="isLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
-                <nb-card-header style="font-family: system-ui;">تسجيل متسابق فى مسابقة بدواى للقران الكريم رمضان {{currentYeat}}</nb-card-header>
+                <nb-card-header style="font-family: system-ui;">تسجيل متسابق فى مسابقة بدواى للقران الكريم رمضان
+                    {{currentYeat}}</nb-card-header>
                 <nb-card-body>
                     <label for="exampleInputEmail1" class="label">الاسم الرباعى</label>
                     <input type="text" id="readerName" formControlName="name" nbInput fullWidth
@@ -54,3 +55,20 @@
         </form>
     </div>
 </div>
+
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
+        <nb-card-header class="dialo-title">تسجيل متسابق</nb-card-header>
+        <nb-card-body>
+            <h6>شكرا لك , تم التسجيل بنجاح</h6>
+            <h6> {{ userCode }} <span class="code-label"> : كود المتسابق</span></h6>
+            <h6> {{ password }} <span class="code-label"> : الرقم السري</span></h6>
+            <label class="label">* يرجي الاحتفاظ بكود المتسابق وكلمة السر على مدار المسابقة *</label>
+            <br />
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton (click)="closeDialog(ref)">إلغاء</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

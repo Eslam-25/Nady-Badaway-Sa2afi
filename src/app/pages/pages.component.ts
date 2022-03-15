@@ -41,6 +41,8 @@ export class PagesComponent implements OnInit {
     }
     else if (this.localStorageService.getUserRole() == UserRoleEnum[UserRoleEnum.Admin]) {
       this.prepareLinksForAdmin()
+    }else if (this.localStorageService.getUserRole() == UserRoleEnum[UserRoleEnum.Reader]) {
+      this.prepareLinksForReader()
     }else{
       this.prepareUnLoggedMenu();
     }
@@ -73,6 +75,16 @@ export class PagesComponent implements OnInit {
         icon: "lock-outline",
         link: "/pages/change-password",
       },
+    ];
+  }
+
+  prepareLinksForReader() {
+    this.menu = [
+      {
+        title: "تقييمي",
+        icon: "edit-2-outline",
+        link: "/pages/my-evalution",
+      }
     ];
   }
 

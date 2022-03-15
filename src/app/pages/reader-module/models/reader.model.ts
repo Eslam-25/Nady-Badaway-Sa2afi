@@ -12,4 +12,7 @@ export class ReaderModel{
     level: string;
     degree: number;
     rulerName: string;
+    code: string;
+    password: string;
+    note: string;
 }

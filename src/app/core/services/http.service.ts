@@ -27,6 +27,15 @@ export class HttpService{
         }
     }
 
+    async getByAny<T>(segment: string, id: any){
+        try{
+            return await this.httpClient.get<T>(this.api + segment + "/" + id).toPromise();
+        }catch(e:any){
+            this.toastService.showError("عذرا حدث خطأ يرجي المحاولة لاحقا");
+            return Promise.resolve(null);
+        }
+    }
+
     async getBy<T>(segment: string){
         try{
             return await this.httpClient.get<T>(this.api + segment).toPromise();
@@ -41,6 +50,14 @@ export class HttpService{
             return await this.httpClient.post<boolean>(this.api + segment, body, {headers: {"Access-Control-Allow-Origin" : "*"}}).toPromise();
         }catch(e:any){
             return Promise.resolve(false);
+        }   
+    }
+
+    async postWithType<T>(segment: string, body: any){
+        try{
+            return await this.httpClient.post<T>(this.api + segment, body, {headers: {"Access-Control-Allow-Origin" : "*"}}).toPromise();
+        }catch(e:any){
+            return Promise.resolve(null);
         }   
     }
 

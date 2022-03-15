@@ -45,3 +45,22 @@ label {
   color: red;
   text-align: right;
 }
+
+.dialo-title,
+.code-label,
+.dialog-section button,
+.dialog-section label,
+.dialog-section input {
+  font-family: system-ui;
+}
+
+.dialog-section h6 {
+  margin-bottom: -0.5rem;
+  font-size: initial;
+}
+
+.code-label {
+  color: #8f9bb3;
+  font-size: smaller;
+  font-weight: 500;
+}

@@ -12,3 +12,11 @@ label {
   color: red;
   text-align: right;
 }
+
+.role-radio {
+  display: initial;
+}
+
+.role-radio ::ng-deep .text {
+  font-family: system-ui !important;
+}
