@@ -1,6 +1,6 @@
 <div class="table-section">
     <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event, dialogMsg)"
-        (deleteConfirm)="onDeleteConfirm($event, dialogMsg)">
+        (deleteConfirm)="onDeleteConfirm($event, dialogMsg)" (userRowSelect)="rowClicked($event)">
     </ng2-smart-table>
 </div>
 

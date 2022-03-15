@@ -23,6 +23,8 @@ export class RulerEvaluationComponent implements OnInit {
   age: number;
   readerModel: ReaderModel;
   userIsReader: boolean = false;
+  evaluationTextPLaceHolder: string = "اكتب هنا ...";
+
   constructor(
     private readerService: ReaderSevice,
     private toastService: ToastService,
@@ -34,6 +36,7 @@ export class RulerEvaluationComponent implements OnInit {
     const code = this.localStorageService.getItem("code");
     if (code) {
       this.userIsReader = true;
+      this.evaluationTextPLaceHolder = "";
       await this.getByCode(code);
     }
   }

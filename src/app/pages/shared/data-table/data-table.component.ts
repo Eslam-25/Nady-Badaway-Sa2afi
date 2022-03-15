@@ -21,6 +21,7 @@ export class DataTableComponent implements OnInit, OnChanges {
   @Input() columns: any = {};
   @Output() onDelete: EventEmitter<modifiedData> = new EventEmitter<modifiedData>();
   @Output() onEdit: EventEmitter<modifiedData> = new EventEmitter<modifiedData>();
+  @Output() onRowClick: EventEmitter<any> = new EventEmitter<any>();
 
   source: LocalDataSource = new LocalDataSource();
   settings;
@@ -83,6 +84,10 @@ export class DataTableComponent implements OnInit, OnChanges {
         },
         closeOnBackdropClick: false,
       });
+  }
+
+  rowClicked($event){
+    this.onRowClick.emit($event.data)
   }
 
   onEditConfirm(event, dialogMsg: TemplateRef<any>): void {

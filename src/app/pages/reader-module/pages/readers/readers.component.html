@@ -3,7 +3,7 @@
         ادارة المتسابقين
     </nb-card-header>
 
-    <nb-card-body class="table-section" >
+    <nb-card-body class="table-section">
         <div class="col-lg-4">
             <label for="exampleInputEmail1" class="label">بحث بـ مستوي الحفظ</label>
             <nb-select [(ngModel)]="selectedLevel" (ngModelChange)="onChangeLevelilter($event)" fullWidth>
@@ -14,6 +14,26 @@
         <br />
 
         <data-table [columns]="columns" [hideFilter]="false" [dataSet]="filterData" (onEdit)="onEditConfirm($event)"
-            (onDelete)="onDeleteConfirm($event)"></data-table>
+            (onDelete)="onDeleteConfirm($event)" (onRowClick)="onRowClick($event, dialog)"></data-table>
     </nb-card-body>
 </nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
+        <nb-card-header class="dialo-title">نتيجة تقييم متسابق</nb-card-header>
+        <nb-card-body *ngIf="data.evalutionNumber > 0">
+            <h6> {{ data.evalutionNumber }} <span class="code-label"> : التقييم</span></h6>
+            <h6 style="margin-bottom: 0;"><span class="code-label"> : اللجنة</span></h6>
+            <h6 style="padding-right: 2rem; margin-left: 2rem;" *ngFor="let ruler of data.rulerName;"> {{ ruler }} - </h6>
+            <h6 style="margin-bottom: 0;"><span class="code-label"> : ملاحظات اللجنة</span></h6>
+            <h6 style="padding-right: 2rem; margin-left: 2rem;" *ngFor="let note of data.note;"> {{ note }} - </h6>
+            <br />
+        </nb-card-body>
+        <nb-card-body *ngIf="data.evalutionNumber == 0">
+            <h6 class="code-label">لم يتم تقييم المتسابق بعد</h6>
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton (click)="ref.close()">إلغاء</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

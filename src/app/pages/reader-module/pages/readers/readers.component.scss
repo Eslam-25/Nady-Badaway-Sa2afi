@@ -29,3 +29,21 @@
 ::ng-deep nb-option-list.size-medium nb-option {
   justify-content: right;
 }
+
+.code-label {
+  color: #8f9bb3;
+  // font-size: smaller;
+  font-weight: 500;
+}
+
+nb-card-body h6 {
+  font-size: initial;
+}
+
+::ng-deep .cdk-overlay-pane {
+  max-width: 90% !important;
+
+  @media only screen and (min-width: 850px) {
+    max-width: 50% !important;
+  }
+}

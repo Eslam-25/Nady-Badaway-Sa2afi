@@ -42,6 +42,18 @@ export class ReadersComponent implements OnInit {
     await this.prepareReaders();
   }
 
+  onRowClick($event: ReaderModel, dialog: TemplateRef<any>){
+      this.dialogService.open(
+        dialog, {
+          context:{
+            evalutionNumber: $event?.degree ?? 0,
+            rulerName: $event?.rulerName?.split(','),
+            note: $event?.note?.split(',')
+          }
+        });
+  }
+
+
   displayAllReaderInformation(){
     this.columns = {
       code: {
