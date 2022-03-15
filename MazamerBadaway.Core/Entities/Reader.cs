@@ -4,6 +4,8 @@ namespace MazamerBadaway.Core.Entities
 {
     public class Reader : BaseEntity
     {
+        public string Code { get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
@@ -13,5 +15,6 @@ namespace MazamerBadaway.Core.Entities
         public string Level { get; set; }
         public string RulerName { get; set; }
         public double Degree { get; set; }
+        public string Note { get; set; }
     }
 }

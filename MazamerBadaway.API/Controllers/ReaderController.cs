@@ -36,19 +36,21 @@ namespace MazamerBadaway.API.Controllers
         }
 
         [HttpGet("reader-evaluation-byRuler")]
-        public IActionResult GetReaderEvaluationByRuler(int readerId, int rulerId)
+        public IActionResult GetReaderEvaluationByRuler(string readerCode, int rulerId)
         {
-            if (readerId < 1)
-                return BadRequest();
+            return Ok(_readerService.GetReaderEvaluationByRulerId(readerCode, rulerId));
+        }
 
-            return Ok(_readerService.GetReaderEvaluationByRulerId(readerId, rulerId));
+        [HttpGet("by-code/{readerCode}")]
+        public IActionResult GetReaderByCode(string readerCode)
+        {
+            return Ok(_readerService.GetReaderByCode(readerCode));
         }
 
         [HttpPost]
         public IActionResult Post(Reader item)
         {
-            _readerService.Create(item);
-            return Ok(true);
+            return Ok(_readerService.Create(item));
         }
 
         [HttpPost("evaluate")]

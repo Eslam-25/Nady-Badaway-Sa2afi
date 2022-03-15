@@ -39,6 +39,8 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
                 BirthDate = value.Count > 7 ? Convert.ToDateTime(value[7]) : DateTime.Now,
                 LevelId = value.Count > 8 ? Convert.ToInt32(value[8]) : 0,
                 Level = value.Count > 9 ? value[9].ToString() : "",
+                Code = value.Count > 10 ? value[10].ToString() : "",
+                Password = value.Count > 11 ? value[11].ToString() : "",
             };
         }
 
@@ -55,7 +57,9 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
                 reader.SheikhName,
                 reader.BirthDate,
                 reader.LevelId,
-                reader.Level
+                reader.Level,
+                reader.Code,
+                reader.Password
             };
             var rangeData = new List<IList<object>> { objectList };
             return rangeData;

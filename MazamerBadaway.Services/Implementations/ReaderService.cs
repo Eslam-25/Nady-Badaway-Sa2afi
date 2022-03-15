@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using MazamerBadaway.GoogleSheet.GoogleSheetMappers;
 using MazamerBadaway.GoogleSheet.Helpers;
 using MazamerBadaway.Services.Dtos;
 using MazamerBadaway.Services.Interfaces;
+using MazamerBadaway.Services.Models;
 using Microsoft.Extensions.Configuration;
 using X.PagedList;
 
@@ -34,13 +36,18 @@ namespace MazamerBadaway.Services.Implementations
             Create(ReaderDegreeMapper.MapToRangeData(readerDegree), sheetName, lastIndexChar);
         }
 
-        public void Create(Reader reader)
+        public Reader Create(Reader reader)
         {
             reader.Id = SheetsId.LastId[sheetName] + 1;
             reader.IsActive = true;
+            reader.Code = $"{reader.BirthDate.Year}-{reader.Id}";
+            Random rand = new Random();
+            reader.Password = $"{rand.Next(1, 100000)}";
             //reader.CreationDate = DateHelper.Now();
             Create(ReaderMapper.MapToRangeData(reader), sheetName, lastIndexChar);
             SheetsId.LastId[sheetName]++;
+
+            return reader;
         }
         public void Update(Reader reader) => Update(reader.Id, ReaderMapper.MapToRangeData(reader), sheetName, lastIndexChar);
         public void SoftDelete(int id)
@@ -51,15 +58,40 @@ namespace MazamerBadaway.Services.Implementations
         }
         public Reader GetById(int id) => ReaderMapper.MapFromRangeData(GetById(id, sheetName, lastIndexChar)).FirstOrDefault();
 
-        public Reader GetReaderEvaluationByRulerId(int readerId, int rulerId)
+        public Reader GetReaderEvaluationByRulerId(string readerCode, int rulerId)
         {
-            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId, sheetName, lastIndexChar)).FirstOrDefault();
+            if (!readerCode.Contains("-")) return null;
+
+            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
+            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId + 1, sheetName, lastIndexChar)).FirstOrDefault();
             string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
             List<ReaderDegree> readerDegrees = ReaderDegreeMapper.MapFromRangeData(GetAll(readerDegreeSheetName, readerDegreeLastIndexChar)).ToList();
             if (readerDegrees.Any(r => r.RulerId == rulerId && r.ReaderId == readerId))
+            {
                 reader.Degree = readerDegrees.FirstOrDefault(r => r.RulerId == rulerId && r.ReaderId == readerId).Degree;
+                reader.Note = readerDegrees.FirstOrDefault(r => r.RulerId == rulerId && r.ReaderId == readerId).Note;
+            }
 
+            return reader;
+        }
+
+        public Reader GetReaderByCode(string readerCode)
+        {
+            if (!readerCode.Contains("-")) return null;
+
+            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
+            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId + 1, sheetName, lastIndexChar)).FirstOrDefault();
+            string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
+            string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
+            List<ReaderDegree> readerDegrees = ReaderDegreeMapper.MapFromRangeData(GetAll(readerDegreeSheetName, readerDegreeLastIndexChar)).ToList();
+            if (readerDegrees.Any(r => r.ReaderId == readerId))
+            {
+                readerDegrees = readerDegrees.Where(r => r.ReaderId == readerId).ToList();
+                reader.Degree = readerDegrees.Sum(r => r.Degree) / readerDegrees.Count;
+                foreach (var readerDegree in readerDegrees)
+                    reader.Note += $"{readerDegree.Note}\n";
+            }
             return reader;
         }
 
@@ -103,6 +135,12 @@ namespace MazamerBadaway.Services.Implementations
             readersPaged = new StaticPagedList<Reader>(readersPaged, readersPaged.PageNumber, readersPaged.PageSize, readersPaged.TotalItemCount);
 
             return new PagedListResult<Reader>(readersPaged);
+        }
+
+        public Reader Login(UserLoginModel userLogin)
+        {
+            List<Reader> readers = GetAll();
+            return readers.FirstOrDefault(r => r.Code == userLogin.PhoneNumber && r.Password == userLogin.Password);
         }
     }
 }

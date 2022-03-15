@@ -12,8 +12,10 @@ namespace MazamerBadaway.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IReaderService _readerService;
+        public UserController(IUserService userService, IReaderService readerService)
         {
+            _readerService = readerService;
             _userService = userService;
         }
 
@@ -49,6 +51,16 @@ namespace MazamerBadaway.API.Controllers
             User user = _userService.Login(item);
             if (user != null)
                 return Ok(user);
+
+            return Ok(null);
+        }
+
+        [HttpPost("login-as-reader")]
+        public IActionResult LoginAsReader(UserLoginModel item)
+        {
+            Reader reader = _readerService.Login(item);
+            if (reader != null)
+                return Ok(reader);
 
             return Ok(null);
         }

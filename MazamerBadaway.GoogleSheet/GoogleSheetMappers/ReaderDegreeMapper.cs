@@ -34,7 +34,8 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
                 ReaderId = Convert.ToInt32(row[1]),
                 RulerId = Convert.ToInt32(row[2]),
                 Degree = Convert.ToInt32(row[3]),
-            }; ;
+                Note = row[4].ToString()
+            };
         }
 
         public static IList<IList<object>> MapToRangeData(ReaderDegree readerDegree)
@@ -44,7 +45,8 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
                 readerDegree.CreationDate,
                 readerDegree.ReaderId,
                 readerDegree.RulerId,
-                readerDegree.Degree
+                readerDegree.Degree,
+                readerDegree.Note
             };
             var rangeData = new List<IList<object>> { objectList };
             return rangeData;

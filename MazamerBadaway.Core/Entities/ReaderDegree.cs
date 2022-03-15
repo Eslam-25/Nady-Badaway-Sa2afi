@@ -6,5 +6,6 @@
         public int RulerId { get; set; }
 
         public double Degree { get; set; }
+        public string Note { get; set; }
     }
 }
