@@ -63,7 +63,7 @@ namespace MazamerBadaway.Services.Implementations
             if (!readerCode.Contains("-")) return null;
 
             int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
-            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId + 1, sheetName, lastIndexChar)).FirstOrDefault();
+            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId, sheetName, lastIndexChar)).FirstOrDefault();
             string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
             List<ReaderDegree> readerDegrees = ReaderDegreeMapper.MapFromRangeData(GetAll(readerDegreeSheetName, readerDegreeLastIndexChar)).ToList();
@@ -81,7 +81,7 @@ namespace MazamerBadaway.Services.Implementations
             if (!readerCode.Contains("-")) return null;
 
             int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
-            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId + 1, sheetName, lastIndexChar)).FirstOrDefault();
+            Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId, sheetName, lastIndexChar)).FirstOrDefault();
             string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
             List<ReaderDegree> readerDegrees = ReaderDegreeMapper.MapFromRangeData(GetAll(readerDegreeSheetName, readerDegreeLastIndexChar)).ToList();
