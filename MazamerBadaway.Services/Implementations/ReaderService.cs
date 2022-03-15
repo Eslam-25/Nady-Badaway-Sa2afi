@@ -111,13 +111,17 @@ namespace MazamerBadaway.Services.Implementations
                 var rulersDegree = readerDegrees.Where(r => r.ReaderId == reader.Id).ToList();
                 if (rulersDegree.Any())
                 {
+                    foreach (var note in rulersDegree.Select(e => e.Note))
+                        reader.Note += $"{note},";
+
                     reader.Degree = rulersDegree.Sum(r => r.Degree) / rulersDegree.Count();
                     var readerRules = rulers.Where(r => rulersDegree.Select(r => r.RulerId).Contains(r.Id)).Select(r => r.Name);
 
                     foreach (var item in readerRules)
-                        reader.RulerName += $"{item} ,";
+                        reader.RulerName += $"{item},";
 
-                    reader.RulerName = reader.RulerName.Remove(reader.RulerName.Length - 2, 2);
+                    reader.RulerName = reader.RulerName.Remove(reader.RulerName.Length - 1);
+                    reader.Note = reader.Note.Remove(reader.Note.Length - 1);
                 }
             }
             return readers;
