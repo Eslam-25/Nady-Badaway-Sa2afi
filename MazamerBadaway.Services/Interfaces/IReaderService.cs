@@ -9,6 +9,7 @@ namespace MazamerBadaway.Services.Interfaces
     public interface IReaderService
     {
         Reader Login(UserLoginModel userLogin);
+        ReaderDashboardModel GetDashboardModel();
         void EvaluateReader(ReaderDegree readerDegree);
         Reader GetReaderEvaluationByRulerId(string readerCode, int rulerId);
         Reader GetReaderByCode(string readerCode);

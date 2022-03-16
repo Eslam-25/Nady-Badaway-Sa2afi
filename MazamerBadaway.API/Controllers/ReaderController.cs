@@ -19,6 +19,9 @@ namespace MazamerBadaway.API.Controllers
         [HttpGet]
         public IActionResult Get() => Ok(_readerService.GetAll());
 
+        [HttpGet("dashboard")]
+        public IActionResult GetDashboard() => Ok(_readerService.GetDashboardModel());
+
         [HttpGet("paged")]
         public async Task<IActionResult> GetPaged([FromQuery] QueryParams queryParams)
         {

@@ -147,5 +147,38 @@ namespace MazamerBadaway.Services.Implementations
             List<Reader> readers = GetAll();
             return readers.FirstOrDefault(r => r.Code == userLogin.PhoneNumber && r.Password == userLogin.Password);
         }
+
+        public ReaderDashboardModel GetDashboardModel()
+        {
+            ReaderDashboardModel readerDashboardModel = new ReaderDashboardModel();
+
+            string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
+            string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
+            List<ReaderDegree> readerDegrees = ReaderDegreeMapper.MapFromRangeData(GetAll(readerDegreeSheetName, readerDegreeLastIndexChar)).ToList();
+
+            List<Reader> readers = ReaderMapper.MapFromRangeData(GetAll(sheetName, lastIndexChar)).Where(r => r.IsActive).ToList();
+            readerDashboardModel.TotalOfReaders = readers.Count;
+            readerDashboardModel.TotalOfPassedReaders = readerDegrees.Select(r => r.ReaderId).Distinct().Count();
+            readerDashboardModel.TotalOfRemainReaders = readerDashboardModel.TotalOfReaders - readerDashboardModel.TotalOfPassedReaders;
+
+            string levelSheetName = _configuration.GetSection("sheets:level")["name"];
+            string levelLastIndexChar = _configuration.GetSection("sheets:level")["lastIndexChar"];
+            List<Level> levels = LevelMapper.MapFromRangeData(GetAll(levelSheetName, levelLastIndexChar)).ToList();
+
+            foreach (var level in levels)
+            {
+                List<int> readersPerLevel = readers.Where(r => r.LevelId == level.Id).Select(r => r.Id).ToList();
+                int passedReaders = readerDegrees.Where(r => readersPerLevel.Contains(r.ReaderId)).Distinct().Count();
+                readerDashboardModel.LevelReaders.Add(new ReaderLevelModel
+                {
+                    LevelName = level.Name,
+                    TotalOfReaders = readersPerLevel.Count,
+                    TotalOfPassedReaders = passedReaders,
+                    TotalOfRemainReaders = readersPerLevel.Count - passedReaders
+                });
+            }
+
+            return readerDashboardModel;
+        }
     }
 }
