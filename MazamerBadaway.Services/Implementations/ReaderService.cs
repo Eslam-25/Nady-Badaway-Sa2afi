@@ -40,7 +40,7 @@ namespace MazamerBadaway.Services.Implementations
         {
             reader.Id = SheetsId.LastId[sheetName] + 1;
             reader.IsActive = true;
-            reader.Code = $"{reader.BirthDate.Year}-{reader.Id}";
+            reader.Code = $"{reader.BirthDate.Year}-{reader.LevelId}-{reader.Id}";
             Random rand = new Random();
             reader.Password = $"{rand.Next(1, 100000)}";
             //reader.CreationDate = DateHelper.Now();
@@ -62,7 +62,7 @@ namespace MazamerBadaway.Services.Implementations
         {
             if (!readerCode.Contains("-")) return null;
 
-            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
+            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.LastIndexOf("-") + 1));
             Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId, sheetName, lastIndexChar)).FirstOrDefault();
             string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
@@ -80,7 +80,7 @@ namespace MazamerBadaway.Services.Implementations
         {
             if (!readerCode.Contains("-")) return null;
 
-            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.IndexOf("-") + 1));
+            int readerId = Convert.ToInt32(readerCode.Substring(readerCode.LastIndexOf("-") + 1));
             Reader reader = ReaderMapper.MapFromRangeData(GetById(readerId, sheetName, lastIndexChar)).FirstOrDefault();
             string readerDegreeSheetName = _configuration.GetSection("sheets:readerDegree")["name"];
             string readerDegreeLastIndexChar = _configuration.GetSection("sheets:readerDegree")["lastIndexChar"];
