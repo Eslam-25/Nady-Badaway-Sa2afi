@@ -40,6 +40,7 @@ namespace MazamerBadaway.Services.Implementations
         {
             reader.Id = SheetsId.LastId[sheetName] + 1;
             reader.IsActive = true;
+            reader.BirthDate = reader.BirthDate.AddDays(1);
             reader.Code = $"{reader.BirthDate.Year}-{reader.Id}";
             Random rand = new Random();
             reader.Password = $"{rand.Next(1, 100000)}";
