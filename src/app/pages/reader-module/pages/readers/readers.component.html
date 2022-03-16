@@ -20,7 +20,7 @@
 
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card [nbSpinner]="isActionLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant" class="dialog-section">
-        <nb-card-header class="dialo-title">نتيجة تقييم متسابق</nb-card-header>
+        <nb-card-header class="dialo-title">نتيجة تقييم المتسابق</nb-card-header>
         <nb-card-body *ngIf="data.evalutionNumber > 0">
             <h6> {{ data.evalutionNumber }} <span class="code-label"> : الدرجة</span></h6>
             <h6 style="margin-bottom: 0;"><span class="code-label"> : اللجنة</span></h6>
