@@ -20,6 +20,8 @@ import { LevelService } from './services/level.service';
 import { BehaviorService } from '../core/services/behavior.service';
 import { ReaderSevice } from './services/reader.service';
 import { UserService } from '../@core/mock/users.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TitleComponent } from './shared/title/title.component';
 
 @NgModule({
   imports: [
@@ -42,6 +44,8 @@ import { UserService } from '../@core/mock/users.service';
     ChangePasswordComponent,
     RulersComponent,
     ReadersComponent,
+    DashboardComponent,
+    TitleComponent,
   ],
   providers: [
     LevelService,

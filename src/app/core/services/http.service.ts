@@ -18,6 +18,15 @@ export class HttpService{
         }
     }
 
+    async getSingle<T>(segment: string){
+        try{
+            return await this.httpClient.get<T>(this.api + segment).toPromise();
+        }catch(e:any){
+            this.toastService.showError("عذرا حدث خطأ يرجي المحاولة لاحقا");
+            return Promise.resolve(null);
+        }
+    }
+
     async getById<T>(segment: string, id: number){
         try{
             return await this.httpClient.get<T>(this.api + segment + "/" + id).toPromise();

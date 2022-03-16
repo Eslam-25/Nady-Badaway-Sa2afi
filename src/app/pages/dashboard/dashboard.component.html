@@ -1,0 +1,20 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+    <nb-card-header class="card-title">
+        اعداد المتسابقين
+    </nb-card-header>
+
+    <nb-card-body class="table-section">
+        <!-- بيانات اضافية -->
+        <div class="row" style="justify-content: space-between;padding: 0 1rem;">
+            <h6 style="display: inline-block;"> <span class="code-label">الاجمالى : </span> {{
+                dashboardModel?.totalOfReaders }}</h6>
+            <h6 style="display: inline-block;"> <span class="code-label">المجتازين : </span> {{
+                dashboardModel?.totalOfPassedReaders }}</h6>
+            <h6 style="display: inline-block;"> <span class="code-label">الباقيين : </span> {{
+                dashboardModel?.totalOfRemainReaders }}</h6>
+        </div>
+        <br />
+        <br />
+        <data-table [columns]="columns" [enableEdit]="false" [enableDelete]="false" [dataSet]="dataSet"></data-table>
+    </nb-card-body>
+</nb-card>

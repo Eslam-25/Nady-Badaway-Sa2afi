@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit {
       this.toastService.showSuccess("لقد تم الدخول بنجاح");
       this.behaviorService.isDataAdded.next(true);
       if (loggedUser.role == UserRoleEnum.Admin || loggedUser.role == UserRoleEnum.Employee)
-        location.pathname = 'pages/readers';
+        location.pathname = 'pages/dashboard';
       else if (loggedUser.role == UserRoleEnum.Ruler)
         location.pathname = 'pages/ruler-evalution';
     } else {

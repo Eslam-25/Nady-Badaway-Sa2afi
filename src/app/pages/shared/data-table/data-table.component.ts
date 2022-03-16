@@ -17,6 +17,8 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   @Input() title: string;
   @Input() hideFilter: boolean = true;
+  @Input() enableEdit: boolean = true;
+  @Input() enableDelete: boolean = true;
   @Input() dataSet: any[];
   @Input() columns: any = {};
   @Output() onDelete: EventEmitter<modifiedData> = new EventEmitter<modifiedData>();
@@ -60,6 +62,8 @@ export class DataTableComponent implements OnInit, OnChanges {
       actions: {
         columnTitle: "",
         add: false,
+        edit: this.enableEdit,
+        delete: this.enableDelete,
         position: "right"
       },
       hideSubHeader: this.hideFilter,

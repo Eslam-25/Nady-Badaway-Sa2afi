@@ -2,8 +2,9 @@
     <div class="col-lg-8" style="text-align: center;">
         <form [formGroup]="readerForm" (ngSubmit)="onSubmit(dialog)">
             <nb-card [nbSpinner]="isLoading" nbSpinnerStatus="danger" nbSpinnerSize="giant">
-                <nb-card-header style="font-family: system-ui;">تسجيل مسابقة بدواى للقران الكريم رمضان
-                    {{currentYeat}}
+                
+                <nb-card-header style="font-family: system-ui;">
+                    <ngx-title title="تسجيل مسابقة بدواى للقران الكريم رمضان {{currentYeat}}"></ngx-title>
                 </nb-card-header>
                 <nb-card-body>
                     <label for="exampleInputEmail1" class="label">الاسم الرباعى</label>

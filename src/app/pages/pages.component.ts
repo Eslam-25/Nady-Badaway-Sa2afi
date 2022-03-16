@@ -96,6 +96,11 @@ export class PagesComponent implements OnInit {
         link: '/pages/register-reader',
       },
       {
+        title: 'الرئيسية',
+        icon: 'home-outline',
+        link: '/pages/dashboard',
+      },
+      {
         title: 'ادارة المتسابقين',
         icon: 'people-outline',
         link: '/pages/readers',
@@ -114,6 +119,11 @@ export class PagesComponent implements OnInit {
         title: 'تسجيل المتسابقين',
         icon: 'person-add-outline',
         link: '/pages/register-reader',
+      },
+      {
+        title: 'الرئيسية',
+        icon: 'home-outline',
+        link: '/pages/dashboard',
       },
       {
         title: 'ادارة المتسابقين',

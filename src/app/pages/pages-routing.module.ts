@@ -11,6 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { RulersComponent } from './rulers/rulers.component';
 import { ReadersComponent } from './reader-module/pages/readers/readers.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [{
   path: '',
@@ -23,6 +24,10 @@ const routes: Routes = [{
     {
       path: 'login',
       component: LoginComponent,
+    },
+    {
+      path: 'dashboard',
+      component: DashboardComponent,
     },
     {
       path: 'ruler-evalution',
