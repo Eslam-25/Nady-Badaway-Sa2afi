@@ -56,7 +56,7 @@
                     </div>
                     <label for="exampleInputEmail1" class="label"> ملاحظات عن المتسابق</label>
                     <textarea [disabled]="readerModel?.degree > 0 || userIsReader" [(ngModel)]="evaluationNote" rows="3"
-                        [placeholder]="evaluationTextPLaceHolder" fullWidth type="text" nbInput></textarea>
+                        [placeholder]="evaluationTextPLaceHolder" style="font-family: system-ui;" fullWidth type="text" nbInput></textarea>
 
                     <br /> <br />
                     <div class="row" *ngIf="!userIsReader" style="justify-content: space-between; padding: 0 1rem;">

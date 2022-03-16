@@ -33,11 +33,12 @@
 .code-label {
   color: #8f9bb3;
   // font-size: smaller;
-  font-weight: 500;
 }
 
 nb-card-body h6 {
+  font-weight: 500;
   font-size: initial;
+  font-family: system-ui;
 }
 
 ::ng-deep .cdk-overlay-pane {
