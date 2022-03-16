@@ -46,6 +46,7 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
 
         public static IList<IList<object>> MapToRangeData(Reader reader)
         {
+            reader.BirthDate = reader.BirthDate.AddDays(1);
             var objectList = new List<object>()
             {
                 reader.Id,
