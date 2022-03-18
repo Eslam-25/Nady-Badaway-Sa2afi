@@ -35,9 +35,9 @@ namespace MazamerBadaway.Services.Implementations
         public void Update(User user) => Update(user.Id, UserMapper.MapToRangeData(user), sheetName, lastIndexChar);
         public void ChagePassword(int id, string newPassword)
         {
-            User user = GetById(id + 1);
+            User user = GetById(id);
             user.Password = newPassword;
-            Update(user.Id + 1, UserMapper.MapToRangeData(user), sheetName, lastIndexChar);
+            Update(user.Id, UserMapper.MapToRangeData(user), sheetName, lastIndexChar);
         }
 
         public void SoftDelete(int id)
@@ -71,6 +71,7 @@ namespace MazamerBadaway.Services.Implementations
         public User Login(UserLoginModel userLogin)
         {
             List<User> users = GetAll();
+            userLogin.PhoneNumber = userLogin.PhoneNumber.TrimStart('0');
             return users.FirstOrDefault(r => r.PhoneNumber == userLogin.PhoneNumber && r.Password == userLogin.Password);
         }
     }
