@@ -23,7 +23,8 @@ export class RegisterReaderComponent implements OnInit {
   currentYeat = new Date(Date.now()).getFullYear();
   userCode: string = "00-00";
   password: string = "00-00";
-
+  disabled: boolean = false;
+  
   constructor(
     private toastService: ToastService,
     private levelService: LevelService,
@@ -33,6 +34,8 @@ export class RegisterReaderComponent implements OnInit {
 
   async ngOnInit() {
     this.prepareFormGroup();
+    this.disabled = true;
+    this.readerForm.disable();
     await this.prepareLevels();
   }
 
