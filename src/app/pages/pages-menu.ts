@@ -9,7 +9,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'تسجيل المتسابقين',
     icon: 'people-outline',
-    link: '/pages/register-reader',
+    link: '/pages/register-reader/none',
   },
   {
     title: 'دخول',
