@@ -53,7 +53,7 @@ export class PagesComponent implements OnInit {
       {
         title: 'تسجيل المتسابقين',
         icon: 'person-add-outline',
-        link: '/pages/register-reader',
+        link: '/pages/register-reader/none',
       },
       {
         title: 'دخول',
@@ -93,7 +93,7 @@ export class PagesComponent implements OnInit {
       {
         title: 'تسجيل المتسابقين',
         icon: 'person-add-outline',
-        link: '/pages/register-reader',
+        link: '/pages/register-reader/logged'
       },
       {
         title: 'الرئيسية',
@@ -118,7 +118,7 @@ export class PagesComponent implements OnInit {
       {
         title: 'تسجيل المتسابقين',
         icon: 'person-add-outline',
-        link: '/pages/register-reader',
+        link: '/pages/register-reader/logged',
       },
       {
         title: 'الرئيسية',
