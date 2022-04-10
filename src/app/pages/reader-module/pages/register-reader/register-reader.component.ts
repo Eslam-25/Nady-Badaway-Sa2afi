@@ -6,6 +6,7 @@ import { LevelService } from '../../../services/level.service';
 import { LevelModel } from '../../../models/level.model';
 import { ReaderSevice } from '../../../services/reader.service';
 import { NbDialogService } from '@nebular/theme';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ngx-register-reader',
@@ -24,18 +25,24 @@ export class RegisterReaderComponent implements OnInit {
   userCode: string = "00-00";
   password: string = "00-00";
   disabled: boolean = false;
-  
+
   constructor(
     private toastService: ToastService,
     private levelService: LevelService,
     private readerSevice: ReaderSevice,
     private dialogService: NbDialogService,
+    private activatedRoute: ActivatedRoute
     ) { }
 
   async ngOnInit() {
     this.prepareFormGroup();
-    this.disabled = true;
-    this.readerForm.disable();
+    this.activatedRoute.params.subscribe(param => {
+      const isLogged = param['status'];
+      if(isLogged == "none"){
+        this.disabled = true;
+        this.readerForm.disable();
+      }
+    });
     await this.prepareLevels();
   }
 
