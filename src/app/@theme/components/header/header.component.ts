@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onConfirm(type, dialog) {
     this.localStorageService.clear();
     this.behaviorService.isLoggedIn.next(false);
-    location.pathname = "pages/register-reader";
+    location.pathname = "pages/register-reader/none";
 
     dialog.close();
   }
