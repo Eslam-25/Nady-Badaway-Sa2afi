@@ -18,7 +18,7 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'register-reader',
+      path: 'register-reader/:status',
       component: RegisterReaderComponent,
     },
     {
@@ -69,7 +69,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'register-reader',
+      redirectTo: localStorage.getItem("userId") != null ? "register-reader/logged": "register-reader/none",
       pathMatch: 'full',
     },
     {
