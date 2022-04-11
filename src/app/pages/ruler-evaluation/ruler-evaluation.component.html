@@ -36,9 +36,14 @@
                         <h5> <label for="exampleInputEmail1" class="label">مستوي الحفظ : </label> {{readerModel?.level}}
                         </h5>
                     </div>
-                    <div class="info-section">
+                    <div *ngIf="!userIsReader" class="info-section">
                         <h5> <label for="exampleInputEmail1" class="label">درجة التقييم : </label>
                             {{readerModel?.degree}}
+                        </h5>
+                    </div>
+                    <div *ngIf="userIsReader" class="info-section">
+                        <h5 style="color: green;"> <label for="exampleInputEmail1" class="label">مستوي التقييم : </label>
+                            {{levelOfDegree}}
                         </h5>
                     </div>
                     
