@@ -34,7 +34,7 @@ namespace MazamerBadaway.GoogleSheet.GoogleSheetMappers
                 ReaderId = Convert.ToInt32(row[1]),
                 RulerId = Convert.ToInt32(row[2]),
                 Degree = Convert.ToInt32(row[3]),
-                Note = row[4].ToString()
+                Note = row.Count > 4 ? row[4].ToString() : ""
             };
         }
 
